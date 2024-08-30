@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Tags Overview</title>
+    <meta name="description" content="The SEO behind a better more Modern website lies behind having not all there are more than 72.. But most Important Link Elements and Metas📈📝.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #1A202C; /* Dark Blue Background */
+            color: #F7FAFC; /* White Text */
+            overflow: hidden; /* Hide overflow */
+        }
+        .container {
+            display: flex;
+            align-items: flex-start;
+            height: 100vh;
+            overflow: auto;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+        .header {
+            position: sticky;
+            top: 0;
+            background: #1A202C; /* Dark Blue Background */
+            width: 100%;
+            z-index: 10;
+            padding: 1rem;
+            text-align: left;
+            overflow-x: auto;
+        }
+        .content {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 1rem;
+            overflow: auto;
+            height: calc(100vh - 4rem); /* Adjust height */
+        }
+        .card {
+            background-color: #2D3748; /* Darker Card Background */
+            border-radius: 0.5rem; /* Rounded Corners */
+            padding: 1rem; /* Padding Inside Card */
+            min-width: 230px; /* Minimum Width */
+            margin: 1rem; /* Margin */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth Animation */
+            box-sizing: border-box;
+        }
+        .card:hover {
+            transform: translateY(-10px); /* Lift Card on Hover */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow on Hover */
+        }
+        .section-title {
+            border-bottom: 2px solid #F6AD55; /* Accent Color Border */
+            padding-bottom: 0.5rem; /* Space Below Title */
+            margin-bottom: 1rem; /* Space Below Title */
+        }
+        .snippet {
+            background-color: #1A202C; /* Dark Background for Snippet */
+            border-radius: 0.375rem; /* Rounded Corners */
+            padding: 0.5rem; /* Padding Inside Snippet */
+            color: #F7FAFC; /* White Text */
+            overflow: hidden; /* Hide Overflow */
+        }
+        .description {
+            color: #E2E8F0; /* Lighter Text for Description */
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-out; /* Fade-in Animation */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Mobile Responsiveness */
+        @media (min-width: 768px) {
+            .header{
+                margin-top: 400px;
+                margin-left: 70px;
+            }
+        }
+        @media (max-width: 768px) {
+            .header {
+                text-align: center;
+            }
+            .content {
+                flex-direction: column;
+                align-items: center;
+                height: auto; /* Adjust height for mobile */
+                overflow: auto;
+            }
+            .card {
+                margin: 1rem; /* Adjust margin for mobile */
+                min-width: 100%; /* Full Width on Mobile */
+            }
+        }
+        .draggable {
+            position: relative;
+            cursor: grab;
+        }
+        .draggable:active {
+            cursor: grabbing;
+        }
+        ::-webkit-scrollbar {
+            width: 16px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: url('https://cdn-icons-png.freepik.com/512/11252/11252779.png') no-repeat center;
+            background-size: 100%;
+            border-radius: 50px; /* Optional: round the edges */
+            color: #000;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f0f0f0; /* Light grey background for track */
+            border-radius: 50px; /* Optional: round the edges */
+        }
+        .scroll-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden; /* Hide default scrollbar */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="text-4xl font-bold text-accent mb-8">Meta Tags<br> Overview</h1>
+        </div>
+        <div class="content">
+            <!-- Highly Important Meta Tags -->
+            <section class="w-full max-w-screen-md p-6">
+                <h2 class="text-3xl font-semibold text-yellow-500 section-title">Highly Important</h2>
+                <div class="space-y-6">
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Charset</h3>
+                        <pre class="snippet"><meta charset="UTF-8"></pre>
+                        <p class="description">Specifies the character encoding for the HTML document.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Viewport</h3>
+                        <pre class="snippet"><meta name="viewport" content="width=device-width, initial-scale=1.0"></pre>
+                        <p class="description">Sets the viewport to make your website responsive.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Title</h3>
+                        <pre class="snippet"><title>Your Website Title</title></pre>
+                        <p class="description">Defines the title of the document, shown in the browser tab.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Meta Description</h3>
+                        <pre class="snippet"><meta name="description" content="Your website description"></pre>
+                        <p class="description">Provides a short description of your website, crucial for SEO.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Favicon</h3>
+                        <pre class="snippet"><link rel="icon" href="/favicon.ico" type="image/x-icon"></pre>
+                        <p class="description">Adds a favicon to your site, displayed in browser tabs.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Canonical Link</h3>
+                        <pre class="snippet"><link rel="canonical" href="https://example.com"></pre>
+                        <p class="description">Specifies the canonical URL of your page to avoid duplicate content issues.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Open Graph Title</h3>
+                        <pre class="snippet"><meta property="og:title" content="Your Site Title"></pre>
+                        <p class="description">Defines the title of your website when shared on social media.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Open Graph Image</h3>
+                        <pre class="snippet"><meta property="og:image" content="https://example.com/image.jpg"></pre>
+                        <p class="description">Specifies the image that will appear when your site is shared on social media.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Open Graph URL</h3>
+                        <pre class="snippet"><meta property="og:url" content="https://example.com"></pre>
+                        <p class="description">Specifies the canonical URL of your site for Open Graph.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Twitter Card</h3>
+                        <pre class="snippet"><meta name="twitter:card" content="summary_large_image"></pre>
+                        <p class="description">Defines the Twitter card type to show when shared.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Moderate Importance Meta Tags -->
+            <section class="w-full max-w-screen-md p-6">
+                <h2 class="text-3xl font-semibold text-blue-500 section-title">Moderate Importance</h2>
+                <div class="space-y-6">
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Open Graph Site Name</h3>
+                        <pre class="snippet"><meta property="og:site_name" content="Your Site Name"></pre>
+                        <p class="description">Specifies the name of your site for Open Graph.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Open Graph Type</h3>
+                        <pre class="snippet"><meta property="og:type" content="website"></pre>
+                        <p class="description">Defines the type of content for Open Graph.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Twitter Title</h3>
+                        <pre class="snippet"><meta name="twitter:title" content="Your Site Title"></pre>
+                        <p class="description">Sets the title for Twitter cards.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Twitter Description</h3>
+                        <pre class="snippet"><meta name="twitter:description" content="Your website description"></pre>
+                        <p class="description">Sets the description for Twitter cards.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Twitter Image</h3>
+                        <pre class="snippet"><meta name="twitter:image" content="https://example.com/image.jpg"></pre>
+                        <p class="description">Specifies the image to be used in Twitter cards.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Theme Color</h3>
+                        <pre class="snippet"><meta name="theme-color" content="#000000"></pre>
+                        <p class="description">Sets the browser’s theme color to match your branding.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Robots</h3>
+                        <pre class="snippet"><meta name="robots" content="index, archive, follow"></pre>
+                        <p class="description">Provides instructions to search engine crawlers about the page.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Less Important Meta Tags -->
+            <section class="w-full max-w-screen-md p-6">
+                <h2 class="text-3xl font-semibold text-green-500 section-title">Less Important</h2>
+                <div class="space-y-6">
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">MS Tile Color</h3>
+                        <pre class="snippet"><meta name="msapplication-TileColor" content="#2b5797"></pre>
+                        <p class="description">Specifies the tile color for Windows start screen tiles.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Safari Pinned Tab</h3>
+                        <pre class="snippet"><link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#484848"></pre>
+                        <p class="description">Provides a pinned tab icon for Safari.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Apple Touch Icon</h3>
+                        <pre class="snippet"><link rel="apple-touch-icon" href="/apple-touch-icon.png"></pre>
+                        <p class="description">Specifies an icon for Apple devices.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Alternate Stylesheet</h3>
+                        <pre class="snippet"><link rel="alternate stylesheet" href="/styles/alternate.css" title="Alternate Style"></pre>
+                        <p class="description">Defines an alternate stylesheet that users can switch to.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Preconnect</h3>
+                        <pre class="snippet"><link rel="preconnect" href="https://example.com"></pre>
+                        <p class="description">Specifies origins that the browser should preconnect to for faster loading.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Noindex</h3>
+                        <pre class="snippet"><meta name="robots" content="noindex"></pre>
+                        <p class="description">Tells search engines not to index this page.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Noarchive</h3>
+                        <pre class="snippet"><meta name="robots" content="noarchive"></pre>
+                        <p class="description">Prevents search engines from storing a cached copy of the page.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Refresh</h3>
+                        <pre class="snippet"><meta http-equiv="refresh" content="30"></pre>
+                        <p class="description">Refreshes the page every 30 seconds.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Author</h3>
+                        <pre class="snippet"><meta name="author" content="Your Name"></pre>
+                        <p class="description">Specifies the author of the document.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Generator</h3>
+                        <pre class="snippet"><meta name="generator" content="Your Tool"></pre>
+                        <p class="description">Identifies the tool or software used to generate the document.</p>
+                    </div>
+                    <div class="card fade-in draggable">
+                        <h3 class="text-xl font-bold text-accent">Pragma</h3>
+                        <pre class="snippet"><meta http-equiv="pragma" content="no-cache"></pre>
+                        <p class="description">Specifies caching directives for HTTP responses.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.draggable').forEach(card => {
+            card.addEventListener('mousedown', function(event) {
+                event.preventDefault(); // Prevents text selection during drag
+                
+                const shiftX = event.clientX - card.getBoundingClientRect().left;
+                const shiftY = event.clientY - card.getBoundingClientRect().top;
+    
+                // Function to move the card based on the current mouse position
+                function moveAt(pageX, pageY) {
+                    card.style.position = 'absolute'; // Ensure card is positioned absolutely
+                    card.style.left = pageX - shiftX + 'px';
+                    card.style.top = pageY - shiftY + 'px';
+                }
+    
+                // Initial move
+                moveAt(event.pageX, event.pageY);
+    
+                // Update card position during dragging
+                function onMouseMove(event) {
+                    moveAt(event.pageX, event.pageY);
+                }
+    
+                // Attach the mousemove event listener
+                document.addEventListener('mousemove', onMouseMove);
+    
+                // Remove event listeners when the mouse button is released
+                function onMouseUp() {
+                    document.removeEventListener('mousemove', onMouseMove);
+                    document.removeEventListener('mouseup', onMouseUp);
+                }
+    
+                // Attach the mouseup event listener
+                document.addEventListener('mouseup', onMouseUp);
+            });
+    
+            // Prevent default drag behavior
+            card.ondragstart = function() {
+                return false;
+            };
+        });
+        const content = document.querySelector('.content');
+const percentageIndicator = document.querySelector('.percentage-indicator');
+
+function updatePercentageBar() {
+    const scrollHeight = content.scrollHeight;
+    const clientHeight = content.clientHeight;
+    const scrollTop = content.scrollTop;
+    const scrollPercent = (scrollTop / (scrollHeight - clientHeight)) * 100;
+    percentageIndicator.style.height = `${scrollPercent}%`;
+}
+
+content.addEventListener('scroll', updatePercentageBar);
+
+    </script>
+    
+</body>
+</html>

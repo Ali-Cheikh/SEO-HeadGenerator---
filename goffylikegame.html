@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The SEO behind a better more Modern website lies behind having not all there are more than 72.. But most Important Link Elements and Metas📈📝.">
+    <!-- the metas and links for sharing the website -->
+     <meta name="description" content="The SEO behind a better more Modern website lies behind having not all there are more than 72.. But most Important Link Elements and Metas📈📝.">
+
     <title>SEO Checker Analyzer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             background-color: #1A202C; /* Dark Blue Background */
             color: #F7FAFC; /* White Text */
-            padding-top: 50px;
-            padding-bottom: 50px;
         }
         .btn-orange { background-color: #ED8936; }
         .btn-red { background-color: #E53E3E; }
@@ -39,59 +39,33 @@
             font-weight: bold;
             color: #F6AD55; /* Orange Accent */
         }
-        a:hover{
-            transform: scale(1.1);
-            animation: forwards;
-        }
-        /* Keyframes for fade-in animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px); /* Optional: adds a slight upward movement */
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Animation class */
-        .animate-on-scroll {
-            opacity: 0; /* Start invisible */
-            animation: fadeIn 1s ease-out forwards; /* Animation details */
-            /* Optional: delay animation */
-            animation-delay: 0.5s; 
-        }
-
     </style>
 </head>
 <body class="font-mono">
-    <br><br><br><br><br><br><br><br>
     <div class="flex justify-center items-center min-h-screen p-4">
         <div class="w-full max-w-screen-md p-6">
-            <div class="scroll-container">
-                <h1 class="text-6xl font-bold mb-4 animate-on-scroll">Soo..<br> your SEO Appears to be messed up ?</h1>
-                <p>this tool might be the one for you</p>
-                <br><br>
-                <h2 class="text-2xl animate-on-scroll">
-                    Have you ever shared your website link on social media, only to find it doesn’t display as expected? Or maybe you’ve searched for your site on a browser and encountered a poorly configured title, description, or missing icons?💻🌵
-                    Optimizing your website for SEO and modern design requires the effective use of <b>meta tags</b> and <b>meta information</b><br><u><a href="overview.html" class="dark-accent"> Read more.</a></u>
-                    <br><br>This tool was made for you! ✨🚀
-                </h2>
-                <br><br><br>
-                <h1 class="text-5xl font-bold mb-4 ">What’s the <span>SEO-Head-Analyzer?🤔</span></h1>
-                <h2 class="text-2xl">
-                    <hr><br>Modern, effective SEO involves using a wide array of link elements and meta tags—there are more than 72 that could impact your website’s performance!📈📝
-                    <br><br>Before you Share, drop your website Link here to analyze and optimize your SEO.
-                </h2>
-                <br><br>
-                <h1 class="text-4xl font-bold text-accent mb-8 ">Head Elements Analyzer</h1>
-                <form id="urlForm" class="mb-8">
-                    <label for="url" class="block text-lg mb-2">Enter your website URL:</label>
-                    <input type="text" id="url" name="url" class="w-full p-2 rounded-md bg-gray-800 border border-gray-700 text-white animate-on-scroll" placeholder="https://example.com">
-                    <button type="submit" class="btn-blue w-full mt-4 p-2 rounded-md text-white btn">Analyze</button>
-                </form>
-            </div>
+            <h1 class="text-6xl font-bold mb-4">Soo..<br> your SEO Appears to be messed up ?</h1>
+            <p>this tool might be the one for you</p>
+            <br><br>
+            <h2 class="text-2xl">
+                Have you ever shared your website link on social media, only to find it doesn’t display as expected? Or maybe you’ve searched for your site on a browser and encountered a poorly configured title, description, or missing icons?💻🌵
+                Optimizing your website for SEO and modern design requires the effective use of <b>meta tags</b> and <b>meta information</b><br><u><a href="" class="color-gree-400"> Read more.</a></u>
+                <br><br>This tool was made for you! ✨🚀
+            </h2>
+            <br><br><br>
+            <h1 class="text-5xl font-bold mb-4">What’s the <span>SEO-Head-Analyzer?🤔</span></h1>
+            <h2 class="text-2xl">
+                <hr><br>Modern, effective SEO involves using a wide array of link elements and meta tags—there are more than 72 that could impact your website’s performance!📈📝
+                <br><br>Before you Share, drop your website Link here to analyze and optimize your SEO.
+            </h2>
+            <br><br>
+            <h1 class="text-4xl font-bold text-accent mb-8">Head Elements Analyzer</h1>
+            <form id="urlForm" class="mb-8">
+                <label for="url" class="block text-lg mb-2">Enter your website URL:</label>
+                <input type="text" id="url" name="url" class="w-full p-2 rounded-md bg-gray-800 border border-gray-700 text-white" placeholder="https://example.com">
+                <button type="submit" class="btn-blue w-full mt-4 p-2 rounded-md text-white btn">Analyze</button>
+            </form>
+    
             <div id="progress" class="hidden">
                 <div id="progressContainer">
                     <div id="progressBar"></div>
@@ -249,109 +223,84 @@
             }
         ];
 
-        document.getElementById('urlForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const url = document.getElementById('url').value;
+        document.addEventListener('DOMContentLoaded', () => {
+    const urlForm = document.getElementById('urlForm');
+    const progress = document.getElementById('progress');
+    const results = document.getElementById('results');
+    const error = document.getElementById('error');
+    const snippets = document.getElementById('snippets');
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+    const errorMessage = document.getElementById('error-message');
+    
+    urlForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const url = document.getElementById('url').value;
+        
+        if (!url || !isValidUrl(url)) {
+            alert('Please enter a valid URL.');
+            return;
+        }
 
-            if (!url || !isValidUrl(url)) {
-                alert('Please enter a valid URL.');
-                return;
+        progress.classList.remove('hidden');
+        results.classList.add('hidden');
+        error.classList.add('hidden');
+
+        fetchWebsiteContent(url).then((content) => {
+            if (content) {
+                analyzeContent(content);
             }
+        }).catch(error => {
+            displayError(error.message);
+        });
+    });
 
-            document.getElementById('progress').classList.remove('hidden');
-            document.getElementById('results').classList.add('hidden');
-            document.getElementById('error').classList.add('hidden');
+    function isValidUrl(url) {
+        const pattern = new RegExp('^(https?:\\/\\/)?'+ /* ...your pattern... */'i');
+        return !!pattern.test(url);
+    }
 
-            fetchWebsiteContent(url).then((content) => {
-                if (content) {
-                    analyzeContent(content);
-                }
-            });
+    async function fetchWebsiteContent(url) {
+        try {
+            const response = await fetch(`https://your-cors-proxy.com/${url}`); // Update with your CORS proxy
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const content = await response.text();
+            updateProgress(50);
+            return content;
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
+
+    function analyzeContent(content) {
+        requiredElements.forEach(element => {
+            if (element.check(content)) {
+                snippets.innerHTML += `<div class="bg-green-500 p-4 rounded-md">${element.name} is present.</div>`;
+            } else {
+                snippets.innerHTML += `<div class="bg-red-500 p-4 rounded-md">${element.name} is missing. Suggested: ${element.snippet}</div>`;
+            }
         });
 
-        function isValidUrl(url) {
-            const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-                '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
-                '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-                '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-                '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-                '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
-            return !!pattern.test(url);
-        }
+        updateProgress(100);
+        results.classList.remove('hidden');
+    }
 
+    function displayError(message) {
+        progress.classList.add('hidden');
+        results.classList.add('hidden');
+        error.classList.remove('hidden');
+        errorMessage.innerText = message;
+    }
 
-        async function fetchWebsiteContent(url) {
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                updateProgress(50); // Fetch progress
-                const content = await response.text();
-                updateProgress(100); // Fetch complete, progress bar at 100%
-                return content;
-            } catch (error) {
-                document.getElementById('progress').classList.add('hidden');
-                document.getElementById('error').classList.remove('hidden');
-                document.getElementById('error-message').innerText = `Error fetching the website: ${error.message}`;
-                console.error('Error fetching the website:', error);
-            }
-        }
-
-        function analyzeContent(content) {
-            const snippetsContainer = document.getElementById('snippets');
-            snippetsContainer.innerHTML = ''; // Clear previous results
-
-            requiredElements.forEach(element => {
-                const isPresent = element.check(content);
-                const snippetHtml = `
-                    <div class="p-4 border ${isPresent ? 'border-green-500' : 'border-red-500'} rounded-md">
-                        <h3 class="text-lg font-bold">${element.name}</h3>
-                        <p>${element.description}</p>
-                        ${isPresent ? '<p class="text-green-500 animate-on-scroll">Present</p>' : `
-                            <p class="text-red-500 animate-on-scroll">Not found</p>
-                            <pre class="bg-gray-800 p-2 rounded-md animate-on-scroll"><code>${element.snippet}</code></pre>
-                        `}
-                    </div>
-                `;
-                snippetsContainer.insertAdjacentHTML('beforeend', snippetHtml);
-            });
-
-            document.getElementById('progress').classList.add('hidden');
-            document.getElementById('results').classList.remove('hidden');
-        }
-
-        function updateProgress(percentage) {
-            const progressBar = document.getElementById('progressBar');
-            const progressText = document.getElementById('progressText');
+    function updateProgress(percentage) {
+        if (progressBar && progressText) {
             progressBar.style.width = `${percentage}%`;
             progressText.innerText = `${percentage}%`;
         }
+    }
+});
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const elements = document.querySelectorAll('.animate-on-scroll');
-        
-            const isElementInViewport = (elem) => {
-                const bounding = elem.getBoundingClientRect();
-                return (
-                    bounding.top < window.innerHeight && 
-                    bounding.bottom > 0
-                );
-            };
-        
-            const handleScroll = () => {
-                elements.forEach((element) => {
-                    if (isElementInViewport(element)) {
-                        element.classList.add('animate-on-scroll');
-                    }
-                });
-            };
-        
-            window.addEventListener('scroll', handleScroll);
-            handleScroll(); // Initial check in case elements are already in view
-        });
-        </script>
-        
 </body>
 </html>
