@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Head Elements Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #1A202C; /* Dark Blue Background */
+            color: #F7FAFC; /* White Text */
+        }
+        .btn-orange { background-color: #ED8936; }
+        .btn-red { background-color: #E53E3E; }
+        .btn-yellow { background-color: #ECC94B; }
+        .btn-blue { background-color: #2B6CB0; }
+        .btn:hover { opacity: 0.8; }
+        .text-accent { color: #F6AD55; } /* Orange Accent */
+        .dark-accent { color: #63B3ED; } /* Light Blue */
+        #progressBar {
+            height: 4px;
+            background-color: #F6AD55; /* Orange Accent */
+            width: 0;
+            transition: width 0.5s ease;
+        }
+        #progressContainer {
+            width: 100%;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        #progressText {
+            position: absolute;
+            top: -1.5rem;
+            right: 0;
+            font-size: 0.875rem; /* Smaller font size */
+            font-weight: bold;
+            color: #F6AD55; /* Orange Accent */
+        }
+    </style>
+</head>
+<body class="font-sans leading-normal tracking-normal">
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl font-bold text-accent mb-8">Head Elements Analyzer</h1>
+        <form id="urlForm" class="mb-8">
+            <label for="url" class="block text-lg mb-2">Enter your website URL:</label>
+            <input type="text" id="url" name="url" class="w-full p-2 rounded-md bg-gray-800 border border-gray-700 text-white" placeholder="https://example.com">
+            <button type="submit" class="btn-blue w-full mt-4 p-2 rounded-md text-white btn">Analyze</button>
+        </form>
+
+        <div id="progress" class="hidden">
+            <div id="progressContainer">
+                <div id="progressBar"></div>
+                <div id="progressText">0%</div>
+            </div>
+            <h2 class="text-2xl font-bold text-yellow-500 mb-4">Fetching and Analyzing...</h2>
+        </div>
+
+        <div id="results" class="hidden">
+            <h2 class="text-2xl font-bold text-yellow-500 mb-4">Suggested Enhancements:</h2>
+            <div id="snippets" class="space-y-4"></div>
+        </div>
+
+        <div id="error" class="hidden">
+            <h2 class="text-2xl font-bold text-red-500 mb-4">Error:</h2>
+            <p id="error-message" class="text-red-300"></p>
+        </div>
+    </div>
+
+    <script>
+        // List of required and recommended <head> elements
+            const requiredElements = [
+            {
+                name: 'Favicon',
+                snippet: '<link rel="icon" href="/favicon.ico" type="image/x-icon">',
+                description: 'Adds a favicon to your site, displayed in browser tabs.',
+                check: (content) => content.includes('<link rel="icon"')
+            },
+            {
+                name: 'Charset',
+                snippet: '<meta charset="UTF-8">',
+                description: 'Specifies the character encoding for the HTML document.',
+                check: (content) => content.includes('<meta charset="')
+            },
+            {
+                name: 'Viewport',
+                snippet: '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+                description: 'Sets the viewport to make your website responsive.',
+                check: (content) => content.includes('<meta name="viewport"')
+            },
+            {
+                name: 'Title',
+                snippet: '<title>Your Website Title</title>',
+                description: 'Defines the title of the document, shown in the browser tab.',
+                check: (content) => content.includes('<title>')
+            },
+            {
+                name: 'Meta Description',
+                snippet: '<meta name="description" content="Your website description">',
+                description: 'Provides a short description of your website, crucial for SEO.',
+                check: (content) => content.includes('<meta name="description"')
+            },
+            {
+                name: 'Open Graph Title',
+                snippet: '<meta property="og:title" content="Your Site Title">',
+                description: 'Defines the title of your website when shared on social media.',
+                check: (content) => content.includes('<meta property="og:title"')
+            },
+            {
+                name: 'Open Graph Site Name',
+                snippet: '<meta property="og:site_name" content="Your Site Name">',
+                description: 'Specifies the name of your site for Open Graph.',
+                check: (content) => content.includes('<meta property="og:site_name"')
+            },
+            {
+                name: 'Open Graph Type',
+                snippet: '<meta property="og:type" content="website">',
+                description: 'Defines the type of content for Open Graph.',
+                check: (content) => content.includes('<meta property="og:type"')
+            },
+            {
+                name: 'Open Graph Image',
+                snippet: '<meta property="og:image" content="https://example.com/image.jpg">',
+                description: 'Specifies the image that will appear when your site is shared on social media.',
+                check: (content) => content.includes('<meta property="og:image"')
+            },
+            {
+                name: 'Open Graph URL',
+                snippet: '<meta property="og:url" content="https://example.com">',
+                description: 'Specifies the canonical URL of your site for Open Graph.',
+                check: (content) => /<meta property="og:url" content="[^"]*">/.test(content)
+            },
+            {
+                name: 'Twitter Card',
+                snippet: '<meta name="twitter:card" content="summary_large_image">',
+                description: 'Defines the Twitter card type to show when shared.',
+                check: (content) => /<meta name="twitter:card" content="[^"]*">/.test(content)
+            },
+            {
+                name: 'Twitter Title',
+                snippet: '<meta name="twitter:title" content="Your Site Title">',
+                description: 'Sets the title for Twitter cards.',
+                check: (content) => /<meta name="twitter:title" content="[^"]*">/.test(content)
+            },
+            {
+                name: 'Twitter Description',
+                snippet: '<meta name="twitter:description" content="Your website description">',
+                description: 'Sets the description for Twitter cards.',
+                check: (content) => /<meta name="twitter:description" content="[^"]*">/.test(content)
+            },
+            {
+                name: 'Twitter Image',
+                snippet: '<meta name="twitter:image" content="https://example.com/image.jpg">',
+                description: 'Specifies the image to be used in Twitter cards.',
+                check: (content) => /<meta name="twitter:image" content="[^"]*">/.test(content)
+            },
+            {
+                name: 'Theme Color',
+                snippet: '<meta name="theme-color" content="#000000">',
+                description: 'Sets the browser’s theme color to match your branding.',
+                check: (content) => content.includes('<meta name="theme-color"')
+            },
+            {
+                name: 'Robots',
+                snippet: '<meta name="robots" content="index, archive, follow">',
+                description: 'Provides instructions to search engine crawlers about the page.',
+                check: (content) => content.includes('<meta name="robots"')
+            },
+            {
+                name: 'MS Tile Color',
+                snippet: '<meta name="msapplication-TileColor" content="#2b5797">',
+                description: 'Specifies the tile color for Windows start screen tiles.',
+                check: (content) => content.includes('<meta name="msapplication-TileColor"')
+            },
+            {
+                name: 'Safari Pinned Tab',
+                snippet: '<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#484848">',
+                description: 'Provides a pinned tab icon for Safari.',
+                check: (content) => content.includes('<link rel="mask-icon"')
+            },
+            {
+                name: 'Apple Touch Icon',
+                snippet: '<link rel="apple-touch-icon" href="/apple-touch-icon.png">',
+                description: 'Specifies an icon for Apple devices.',
+                check: (content) => /<link rel="apple-touch-icon" href="[^"]*">/.test(content)
+            },
+            {
+                name: 'Canonical Link',
+                snippet: '<link rel="canonical" href="https://example.com">',
+                description: 'Specifies the canonical URL of your page to avoid duplicate content issues.',
+                check: (content) => /<link rel="canonical" href="[^"]*">/.test(content)
+            },
+            {
+                name: 'Alternate Stylesheet',
+                snippet: '<link rel="alternate stylesheet" href="/styles/alternate.css" title="Alternate Style">',
+                description: 'Defines an alternate stylesheet that users can switch to.',
+                check: (content) => /<link rel="alternate stylesheet" href="[^"]*" title="[^"]*">/.test(content)
+            },
+            {
+                name: 'Preconnect',
+                snippet: '<link rel="preconnect" href="https://example.com">',
+                description: 'Specifies origins that the browser should preconnect to for faster loading.',
+                check: (content) => /<link rel="preconnect" href="[^"]*">/.test(content)
+            }
+        ];
+
+        document.getElementById('urlForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const url = document.getElementById('url').value;
+
+            if (!url || !isValidUrl(url)) {
+                alert('Please enter a valid URL.');
+                return;
+            }
+
+            document.getElementById('progress').classList.remove('hidden');
+            document.getElementById('results').classList.add('hidden');
+            document.getElementById('error').classList.add('hidden');
+
+            fetchWebsiteContent(url).then((content) => {
+                if (content) {
+                    analyzeContent(content);
+                }
+            });
+        });
+
+        function isValidUrl(url) {
+            try {
+                const parsedUrl = new URL(url);
+                return parsedUrl.protocol === 'http:' || parsedUrl.protocol === 'https:';
+            } catch (e) {
+                return false;
+            }
+        }
+
+        async function fetchWebsiteContent(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                
+                updateProgress(50); // Fetch progress
+                
+                const text = await response.text();
+                updateProgress(100); // Analyze progress
+                
+                return text;
+            } catch (error) {
+                console.error('Error fetching website content:', error);
+                document.getElementById('error-message').innerText = `Unable to fetch content from the URL. Error: ${error.message}`;
+                document.getElementById('error').classList.remove('hidden');
+                updateProgress(0); // Reset progress
+                return null;
+            }
+        }
+
+        function analyzeContent(content) {
+            const snippets = document.getElementById('snippets');
+            snippets.innerHTML = '';
+
+            requiredElements.forEach(element => {
+                if (!element.check(content)) {
+                    snippets.innerHTML += `
+                        <div class="p-4 bg-gray-900 rounded-md">
+                            <h3 class="text-lg font-bold text-accent">${element.name}</h3>
+                            <pre class="bg-gray-800 p-2 rounded-md text-white mt-2">${element.snippet}</pre>
+                            <p class="mt-2 dark-accent">${element.description}</p>
+                        </div>
+                    `;
+                }
+            });
+
+            document.getElementById('results').classList.remove('hidden');
+        }
+
+        function updateProgress(percentage) {
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            progressBar.style.width = `${percentage}%`;
+            progressText.innerText = `${percentage}%`;
+        }
+    </script>
+</body>
+</html>
