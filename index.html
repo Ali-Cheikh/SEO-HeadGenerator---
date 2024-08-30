@@ -79,14 +79,14 @@
     </style>
 </head>
 <body class="font-mono">
-    <br><br><br><br><br>
+    <br><br><br>
     <div class="flex justify-center items-center min-h-screen p-4" style="padding-bottom: 100px;">
         <div class="w-full max-w-screen-md p-6">
             <div class="scroll-container">
                 <img src="seo.png" alt="" class="animate-on-scroll img1">
                 <h1 class="text-6xl font-bold mb-4 animate-on-scroll">Soo..<br> your SEO Appears to be messed up ?</h1>
                 <p>this tool might be the one for you <i class="fas fa-hand-point-down"> </i> <i class="fas fa-hand-point-down"> </i> <i class="fas fa-hand-point-down"> </i></p>
-                <br><br>
+                <br><br><br><br>
                 <h2 class="text-2xl animate-on-scroll">
                     Have you ever shared your website link on social media, only to find it doesn’t display as expected? Or maybe you’ve searched for your site on a browser and encountered a poorly configured title, description, or missing icons?💻🌵
                     Optimizing your website for SEO and modern design requires the effective use of <b>meta tags</b> and <b>meta information</b><br><u><a href="overview.html" class="dark-accent"> Read more.</a></u>
@@ -117,6 +117,7 @@
             <div id="results" class="hidden">
                 <h2 class="text-2xl font-bold text-yellow-500 mb-4">Suggested Enhancements:</h2>
                 <div id="snippets" class="space-y-4"></div>
+                <h2 class="text-2xl"><br><u><a href="overview.html" class="dark-accent"> Read more...</a></u></h2>
             </div>
     
             <div id="error" class="hidden">
@@ -364,6 +365,7 @@
                             <p class="text-red-500 animate-on-scroll">Not found</p>
                             <pre class="bg-gray-800 p-2 rounded-md animate-on-scroll"><code>${element.snippet}</code></pre>
                         `}
+
                     </div>
                 `;
                 snippetsContainer.insertAdjacentHTML('beforeend', snippetHtml);
