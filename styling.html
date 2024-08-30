@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    background-color: #1A202C ;
+    font-family: Arial, sans-serif; /* Ensure readable text */
+}
+
+/* The actual timeline-blog (the vertical ruler) */
+.timeline-blog {
+    position: relative;
+    max-width: 600px; /* Adjusted width for better display */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Container for timeline blog content */
+.container-blog {
+    padding: 10px 20px; /* Adjusted padding */
+    position: relative;
+    background-color: inherit;
+    width: 100%; /* Full width of the timeline-blog */
+    box-sizing: border-box;
+}
+
+/* The actual content-blog */
+.content-blog {
+    padding: 20px;
+    background-color: #5fb3d4d3;
+    position: relative;
+    border-radius: 6px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    margin-top: -1px; /* Remove the gap by using negative margin */
+}
+
+/* Container for dots and the top "toolbar" */
+.row-blog {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    background: #f1f1f1;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-bottom: 0; /* Ensure no gap below the row */
+}
+
+/* Three dots */
+.dot-blog {
+    height: 12px;
+    width: 12px;
+    background-color: #83e731;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px; /* Space between dots */
+}
+
+/* Heading styles */
+.content-blog h3 {
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    margin-bottom: 10px; /* Adjusted for better spacing */
+    border-bottom: 1px dashed #000; /* Adjusted border style */
+    padding-bottom: 10px; /* Added padding for spacing */
+}
+
+/* Style for date */
+.content-blog .mute {
+    font-size: 0.9em; /* Slightly smaller text for the date */
+    color: #555; /* Dark grey color for the date text */
+}
+
+/* Ensure images are responsive */
+.content-blog img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Prevents inline spacing issues */
+    margin-top: 10px; /* Space between text and image */
+}
+
+    </style>
+</head>
+<body>
+    <div class="timeline-blog">
+        <div class="row-blog">
+            <div class="dot-blog" style="background:#ED594A;"></div>
+            <div class="dot-blog" style="background:#FDD800;"></div>
+            <div class="dot-blog" style="background:#5AC05A;"></div>
+        </div>
+        <div class="content-blog">
+            <h3>Masterclass about Large Language Models (LLMs), AI systems</h3>
+            <p>With Puneet Mangla, Data Scientist at Microsoft, 2 hours of deep dive into the fascinating world of natural language processing (NLP) 💡</p>
+            <img src="img/masterclassllms.png" alt="Masterclass Image">
+            <p class="mute">12/06/2024</p>
+        </div>
+    </div>
+</body>
+</html>
