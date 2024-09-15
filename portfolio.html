@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ahmed's Portfolio</title>
+    <!-- Include Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-PoFQBVvthl1dY7rODshZg7OEAzUyZQBV1+ZV+J5K4vvbZlZcNhrj6Ih+ZZKJYHiqsd4TtcfwlE1w2OeD0OeIgw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.js/1.0.0/animate.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <!-- Additional Styles -->
+    <style>
+        body {
+            background-color: #06312b;
+            color: #fff;
+        }
+
+        .tilt-left, .tilt-right {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth animation */
+        }
+
+        .tilt-left:hover {
+            transform: rotate(-5deg) scale(1.1); /* Rotate and scale */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+        }
+
+        .tilt-right:hover {
+            transform: rotate(5deg) scale(1.1); /* Rotate and scale */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+        }
+    </style>
+</head>
+
+<body class="animate__animated animate__fadeInDown">
+    <div id="root">
+        <div class="min-h-screen bg-zinc-900 px-4 py-12 text-zinc-50">
+            <div class="mx-auto max-w-4xl grid grid-cols-12 gap-4 grid-flow-dense">
+                <div class="rounded-lg border border-zinc-700 bg-zinc-800 p-6 col-span-12 row-span-2 md:col-span-6" style="opacity: 1; will-change: auto;">
+                    <img src="https://ahmedmasmoudi.netlify.app/ahmed.jpg" alt="Ahmed.com logo" class="w-20 rounded-full"><br>
+                    <h1 class="mb-12 text-4xl font-medium leading-tight"> Hi, I'm Ahmed. <span class="text-zinc-400">I build cool websites like this one.</span></h1>
+                    <a href="mailto:ahmedmasmoudi780@gmail.com" target="_blank" class="text-lg flex items-center gap-1 text-red-300 hover:underline">Contact me
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="rounded-lg border border-zinc-700 p-6 col-span-6 bg-green-500 md:col-span-3 tilt-left"
+                    style="opacity: 1; will-change: auto;"><a target="_blank"
+                        href="https://wa.me/yourphonenumber"
+                        class="grid h-full place-content-center text-3xl text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <title>WhatsApp</title>
+                            <path
+                                d="M18.318 14.935a5.087 5.087 0 0 0-2.549-1.233c-.22-.055-.442.078-.532.291-.095.237-.13.493-.106.751.091.863.671 1.737 1.559 2.234.593.332 1.218.577 1.872.745.368.091.719.272 1.023.514a.566.566 0 0 0 .69-.116l.63-.63a.561.561 0 0 0 .177-.497c.017-.248-.059-.498-.19-.693a7.617 7.617 0 0 0-1.039-1.038 4.717 4.717 0 0 0-1.767-.962zM4 3.54C2.8 3.54 2.075 4.582 1.972 5.72A1.995 1.995 0 0 0 2 7.162V17.92c.034.472.4.832.887.832.145 0 .294-.038.438-.113l4.19-2.628 5.64 3.618a.626.626 0 0 0 .951-.503v-5.986a.626.626 0 0 0-.284-.528l-5.58-3.38 3.93-2.49a.621.621 0 0 0 .23-.859A1.995 1.995 0 0 0 16 3.54h-1.87A1.993 1.993 0 0 0 14 4.195V7.24a.584.584 0 0 0 .116.309l4.454 2.792a1.995 1.995 0 0 0 .857.232H18.41a1.993 1.993 0 0 0 1.721-.88C20.062 8.71 20.01 7.017 18.318 5.54A5.513 5.513 0 0 0 14.25 4H7.8a5.56 5.56 0 0 0-2.468.64 1.977 1.977 0 0 0-1.332 1.358z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="rounded-lg border border-zinc-700 p-6 col-span-6 bg-gray-900 md:col-span-3 tilt-right" style="opacity: 1; will-change: auto;"><a target="_blank" href="https://www.github.com/justpowerful" class="grid h-full place-content-center text-3xl text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffff" viewBox="0 0 24 24">
+                            <title>GitHub</title>
+                            <path
+                                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="rounded-lg border border-zinc-700 bg-blue-800 p-6 col-span-6 md:col-span-3 tilt-right" style="opacity: 1; will-change: auto;">
+                    <a target="_blank" href="https://discord.com/users/789924295102431232" class="grid h-full place-content-center text-3xl text-black">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffff" viewBox="0 0 24 24">
+                            <title>Discord</title>
+                            <path
+                                d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.078.037c-.211.375-.444.862-.61 1.249a19.241 19.241 0 0 0-5.769 0 12.515 12.515 0 0 0-.617-1.249.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.683 4.37a.07.07 0 0 0-.032.027C.533 9.284-.32 14.062.099 18.783a.084.084 0 0 0 .031.056 19.888 19.888 0 0 0 5.993 3.034.077.077 0 0 0 .083-.028c.461-.63.873-1.295 1.226-1.991a.076.076 0 0 0-.041-.107 13.21 13.21 0 0 1-1.885-.9.076.076 0 0 1-.008-.127 9.624 9.624 0 0 0 .375-.294.074.074 0 0 1 .078-.01c3.926 1.794 8.18 1.794 12.061 0a.074.074 0 0 1 .079.009c.12.1.25.203.377.296a.076.076 0 0 1-.006.127 12.69 12.69 0 0 1-1.886.897.076.076 0 0 0-.04.108c.364.695.777 1.36 1.224 1.991a.076.076 0 0 0 .083.028 19.88 19.88 0 0 0 5.996-3.034.078.078 0 0 0 .03-.055c.5-5.186-.838-9.94-3.552-14.387a.06.06 0 0 0-.032-.028zM8.02 15.623c-1.183 0-2.155-1.085-2.155-2.419 0-1.333.955-2.419 2.155-2.419 1.21 0 2.183 1.096 2.155 2.42 0 1.333-.955 2.418-2.155 2.418zm7.96 0c-1.184 0-2.156-1.085-2.156-2.419 0-1.333.955-2.419 2.156-2.419 1.209 0 2.183 1.096 2.155 2.42 0 1.333-.946 2.418-2.155 2.418z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="rounded-lg border border-zinc-700 p-6 col-span-6 bg-pink-500 md:col-span-3 tilt-left" style="opacity: 1; will-change: auto;">
+                    <a target="_blank" href="https://www.instagram.com/ahmed.amine.doudech" class="grid h-full place-content-center text-3xl text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <title>Instagram</title>
+                            <path
+                                d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="rounded-lg border border-zinc-700 bg-zinc-800 p-6 col-span-12 text-3xl leading-snug" style="opacity: 1; will-change: auto;">
+                    <p>I am a beginner computer science student. <span class="text-zinc-400">I enjoy learning how to
+                            code and solving problems using different programming languages. I’m currently exploring
+                            technologies like HTML, CSS, JavaScript, and Python. I love building small projects,
+                            experimenting with algorithms, and understanding how computers work.</span></p>
+
+                </div>
+                <div class="rounded-lg border border-zinc-700 bg-zinc-800 p-6 col-span-12 flex flex-col items-center justify-center gap-4 md:col-span-3" style="opacity: 1; will-change: auto;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin">
+                        <path
+                            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                        </path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <p>Sfax, Tunisia</p>
+                </div>
+                <div class="rounded-lg border border-zinc-700 bg-zinc-800 p-6 text-center col-span-12 text-3xl leading-snug md:col-span-9"
+                    style="opacity: 1; will-change: auto;">
+                    <p class="mb-2">Trusted by</p>
+                    <div class="flex justify-center gap-4">
+                        <img class="w-48 h-auto" src="https://www.ali-cheikh.com/img/aliii.png" alt="alicheikh head">
+                        <img class="w-48 h-auto" src="https://det-hiring.netlify.app/logo.png" style="width:50% !important" alt="detlfba tech club"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.js/1.0.0/animate.min.js"></script>
+</body>
+
+</html>
